@@ -128,7 +128,17 @@ the same instruction set available on the target CPU you want to run it. Some co
 runs in your machine on your CPU with its instruction set, but the binary generated only runs on a target machine with 
 its own instruction set.
 
-[![](https://www.tutorialspoint.com/compiler_design/images/language_processing_system.jpg)](https://www.tutorialspoint.com/compiler_design/compiler_design_overview.htm)
+``` mermaid
+graph TD
+    START((Start))-->
+    |Source Code|PreProcessor-->
+    |Pre-processed Code|Compiler-->
+    |Target Assembly Code|Assembler-->
+    |Relacable Machine Code|Linker-->
+    |Executable Machine Code|Loader-->
+    |Operation System|Memory-->
+    |CPU|RUN((Run))
+```
 
 # Program Life Cycle
 
@@ -184,7 +194,7 @@ looks like this:
 > By using a combination of these symbols and notations, you can create a clear and concise flowchart that effectively communicates the steps involved in a process or system. [Reference](https://chat.openai.com/)
 
 I suggest using the tool [Code2Flow](https://code2flow.com/) to write pseudocode and see the flowchart drawn in real 
-time. But you can draw them on [Diagrams](https://diagrams.net).
+time. But you can draw them on [Diagrams](https://diagrams.net). If you are into sequence diagrams, I suggest using [sequencediagram.org](https://sequencediagram.org/).
 
 # Practice
 Try to think ahead the problem definition by questioning yourself before expressing the algorithm as pseudocode or 

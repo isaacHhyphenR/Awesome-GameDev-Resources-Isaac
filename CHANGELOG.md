@@ -1,3 +1,80 @@
+## [1.8.7](https://github.com/InfiniBrains/Awesome-GameDev-Resources/compare/v1.8.6...v1.8.7) (2023-09-04)
+
+
+### Bug Fixes
+
+* **flocking:** add flocking cmake automation ([ac1365a](https://github.com/InfiniBrains/Awesome-GameDev-Resources/commit/ac1365ae02568e2de2a4434f0e60365420f8df83))
+* **flocking:** fix flocking description ([84fd158](https://github.com/InfiniBrains/Awesome-GameDev-Resources/commit/84fd1584747f6c61a8ba8d151c0bd1cbc4124f6f))
+
+## [1.8.6](https://github.com/InfiniBrains/Awesome-GameDev-Resources/compare/v1.8.5...v1.8.6) (2023-09-04)
+
+
+### Bug Fixes
+
+* **flocking:** fix flocking rule composition ([52b690f](https://github.com/InfiniBrains/Awesome-GameDev-Resources/commit/52b690f4b5409b3efb94ed4fd5181451e89d4768))
+
+## [1.8.5](https://github.com/InfiniBrains/Awesome-GameDev-Resources/compare/v1.8.4...v1.8.5) (2023-09-01)
+
+
+### Bug Fixes
+
+* **intro:** add numberings for the first class ([33fc80c](https://github.com/InfiniBrains/Awesome-GameDev-Resources/commit/33fc80cff6c1c0efaaaaa915e9e79d1cd60098ce))
+
+## [1.8.4](https://github.com/InfiniBrains/Awesome-GameDev-Resources/compare/v1.8.3...v1.8.4) (2023-08-31)
+
+
+### Bug Fixes
+
+* **intro:** add sequence diagram suggestion into intro programming ([5182e5d](https://github.com/InfiniBrains/Awesome-GameDev-Resources/commit/5182e5dd905bf0c0b3b127968c8a365c87e93547))
+
+## [1.8.3](https://github.com/InfiniBrains/Awesome-GameDev-Resources/compare/v1.8.2...v1.8.3) (2023-08-31)
+
+
+### Bug Fixes
+
+* **ferpa:** add ferpa consent to ai setup assignment ([69fe9b7](https://github.com/InfiniBrains/Awesome-GameDev-Resources/commit/69fe9b703c133114e752a9ba352cf534ab5d851a))
+
+## [1.8.2](https://github.com/InfiniBrains/Awesome-GameDev-Resources/compare/v1.8.1...v1.8.2) (2023-08-31)
+
+
+### Bug Fixes
+
+* **ferpa:** add ferpa waiver consent ([9f8a4d0](https://github.com/InfiniBrains/Awesome-GameDev-Resources/commit/9f8a4d0c21057f484e5ef1f2f3005da329d18fad))
+
+## [1.8.1](https://github.com/InfiniBrains/Awesome-GameDev-Resources/compare/v1.8.0...v1.8.1) (2023-08-31)
+
+
+### Bug Fixes
+
+* **ci:** add lxml dependency ([4dbbc72](https://github.com/InfiniBrains/Awesome-GameDev-Resources/commit/4dbbc721425dacbbfa3f0f63412f777e336eef08))
+* **ferpa:** add ferpa considerations ([6e8930f](https://github.com/InfiniBrains/Awesome-GameDev-Resources/commit/6e8930f6f9b85b8d4dc66f89f9e7b65986fa04cf))
+
+# [1.8.0](https://github.com/InfiniBrains/Awesome-GameDev-Resources/compare/v1.7.6...v1.8.0) (2023-08-30)
+
+
+### Bug Fixes
+
+* **intro:** better description on the learning objectives and outcomes ([ab5606d](https://github.com/InfiniBrains/Awesome-GameDev-Resources/commit/ab5606d87958694699d89b4047f7fb243027fd5f))
+
+
+### Features
+
+* **courses:** restructure ([da9bc19](https://github.com/InfiniBrains/Awesome-GameDev-Resources/commit/da9bc19b3515270efc997dfa74639564f76e4c56))
+
+## [1.7.6](https://github.com/InfiniBrains/Awesome-GameDev-Resources/compare/v1.7.5...v1.7.6) (2023-08-29)
+
+
+### Bug Fixes
+
+* **blog:** add image to notes on submission ([8b6fa3a](https://github.com/InfiniBrains/Awesome-GameDev-Resources/commit/8b6fa3ab38e073569df36c2b55a4ec675fe0963c))
+
+## [1.7.5](https://github.com/InfiniBrains/Awesome-GameDev-Resources/compare/v1.7.4...v1.7.5) (2023-08-29)
+
+
+### Bug Fixes
+
+* **rng:** fix AI RNG tests ([8f9d2ff](https://github.com/InfiniBrains/Awesome-GameDev-Resources/commit/8f9d2ffa1b0a588dc8126358a8278b07d11f3737))
+
 ## [1.7.4](https://github.com/InfiniBrains/Awesome-GameDev-Resources/compare/v1.7.3...v1.7.4) (2023-08-28)
 
 
