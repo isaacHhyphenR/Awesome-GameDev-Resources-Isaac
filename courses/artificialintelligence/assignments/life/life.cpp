@@ -79,8 +79,6 @@ int main() {
       grid[r].push_back(newCell);
     }
   }
-  PrintGrid(grid);
-  cout << endl;
 
   // sets up the cell neighbours
   for (int r = 0; r < rows; r++) {
