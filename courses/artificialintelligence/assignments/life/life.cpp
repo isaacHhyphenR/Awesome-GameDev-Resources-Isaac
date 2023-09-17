@@ -1,5 +1,8 @@
 #include <fstream>
 #include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -18,10 +21,12 @@ struct Vector2 {
 struct Cell {
   char state = '.';
   char tempState = '.';  // stores the state it will be next turn
-  Vector2 position;      // the position of this cell
   Cell* neighbours[NUM_NEIGHBOURS] = {nullptr, nullptr, nullptr, nullptr, nullptr,
                                       nullptr, nullptr, nullptr};  // the positions of neighbours
-  // Cell(){};
+  explicit Cell(char startState)
+  {
+      state = startState;
+  }
   void CalculateState()  // determines whether to live or die
   {
     // counts living neighbors
@@ -46,6 +51,8 @@ struct Cell {
   }
 };
 
+void PrintGrid(vector<vector<Cell>> grid);
+
 int main() {
   int columns = 1;
   int rows = 1;
@@ -53,18 +60,31 @@ int main() {
   int turnsElapsed = 0;
 
   // gets input
-  cout << "How many columns will the grid have?";
-  cin >> columns;
-  cout << "How many rows will the grid have?";
-  cin >> rows;
-  cout << "How many turns will the game run for?";
-  cin >> turns;
+  cout << "Enter the number of columns, rows, and turns seperated by a single space each, then hit enter." << endl;
+  cin >> columns >> rows >> turns;
 
-  Cell grid[columns][rows];
+  //sets the initial grid
+  cout << "For each row enter the initial setup as '.' for dead and '#' for alive, then hit enter." << endl;
+  vector<vector<Cell>> grid(columns);
+  for(int r = 0; r < columns; r++)
+  {
+    string input;
+    cin >> input;
+    stringstream inputStream(input);
+    char state;
+    for( int c = 0; c < rows; c++)
+    {
+      inputStream.get(state);
+      Cell newCell = Cell(state);
+      grid[r].push_back(newCell);
+    }
+  }
+  PrintGrid(grid);
+  cout << endl;
+
   // sets up the cell neighbours
   for (int r = 0; r < rows; r++) {
     for (int c = 0; c < columns; c++) {
-      grid[c][r].position = Vector2(c, r);
       if (c > 0)  // north
       {
         grid[c][r].neighbours[0] = &grid[c - 1][r];
@@ -117,13 +137,20 @@ int main() {
     }
   }
 
-  // prints the results
-  for (int r = 0; r < rows; r++) {
-    for (int c = 0; c < columns; c++) {
-      cout << grid[c][r].state;
-    }
-    cout << endl;
-  }
+  PrintGrid(grid);
 
   return 0;
 };
+
+void PrintGrid(vector<vector<Cell>> grid)
+{
+  int rows = grid.size();
+  int columns = grid[0].size();
+  // prints the results
+  for (int r = 0; r < rows; r++) {
+    for (int c = 0; c < columns; c++) {
+      cout << grid[r][c].state;
+    }
+    cout << endl;
+  }
+}
