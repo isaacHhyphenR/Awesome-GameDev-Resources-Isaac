@@ -59,62 +59,68 @@ int main() {
   int turns = 1;
   int turnsElapsed = 0;
 
-  // gets input
-  cout << "Enter the number of columns, rows, and turns seperated by a single space each, then hit enter." << endl;
+  // set's the grid's size;
+  // This is separate form initializing the grid state because the input is row based,
+  // but the grid is column based to make the coordinate order correspond to traditional XY
   cin >> columns >> rows >> turns;
-
-  //sets the initial grid
-  cout << "For each row enter the initial setup as '.' for dead and '#' for alive, then hit enter." << endl;
   vector<vector<Cell>> grid(columns);
-  for(int r = 0; r < columns; r++)
+  for(int c = 0; c < columns; c++)
   {
+    for(int r = 0; r < rows; r++)
+    { //fills it with dead cells for now
+      Cell newCell = Cell('.');
+      grid[c].push_back(newCell);
+    }
+  }
+  //sets the initial state of the cells based on input
+  for(int r = 0; r < rows; r++)
+  {
+    //takes a row of input
     string input;
     cin >> input;
     stringstream inputStream(input);
     char state;
-    for( int c = 0; c < rows; c++)
+    //plugs the input into the corresponding grid spaces
+    for( int c = 0; c < columns; c++)
     {
       inputStream.get(state);
-      Cell newCell = Cell(state);
-      grid[r].push_back(newCell);
+      grid[c][r].state = state;
     }
   }
 
-  // sets up the cell neighbours
+  // Tells each cell who it neighbours
   for (int r = 0; r < rows; r++) {
     for (int c = 0; c < columns; c++) {
-      if (c > 0)  // north
+      int north = c-1;
+      int east = r+1;
+      int south = c+1;
+      int west = r-1;
+      //if a cell is on the edge of the grid, it wraps around and neighbours the far edge
+      if(north == -1)
       {
-        grid[c][r].neighbours[0] = &grid[c - 1][r];
+        north = columns - 1;
       }
-      if (c > 0 && r < rows - 1)  // northeast
+      if(east == rows)
       {
-        grid[c][r].neighbours[1] = &grid[c - 1][r + 1];
+        east = 0;
       }
-      if (r < rows - 1)  // east
+      if(south == columns)
       {
-        grid[c][r].neighbours[2] = &grid[c][r + 1];
+        south = 0;
       }
-      if (c < columns - 1 && r < rows - 1)  // southeast
+      if(west == -1)
       {
-        grid[c][r].neighbours[3] = &grid[c + 1][r + 1];
+        west = rows - 1;
       }
-      if (c < columns - 1)  // south
-      {
-        grid[c][r].neighbours[4] = &grid[c + 1][r];
-      }
-      if (c < columns - 1 && r > 0)  // southwest
-      {
-        grid[c][r].neighbours[5] = &grid[c + 1][r - 1];
-      }
-      if (r > 0)  // west
-      {
-        grid[c][r].neighbours[6] = &grid[c][r - 1];
-      }
-      if (c > 0 && r > 0)  // northwest
-      {
-        grid[c][r].neighbours[7] = &grid[c - 1][r - 1];
-      }
+      //uses the calculated coordinates to assign neighbours
+      grid[c][r].neighbours[0] = &grid[north][r];
+      grid[c][r].neighbours[1] = &grid[north][east];
+      grid[c][r].neighbours[2] = &grid[c][east];
+      grid[c][r].neighbours[3] = &grid[south][east];
+      grid[c][r].neighbours[4] = &grid[south][r];
+      grid[c][r].neighbours[5] = &grid[south][west];
+      grid[c][r].neighbours[6] = &grid[c][west];
+      grid[c][r].neighbours[7] = &grid[north][west];
     }
   }
 
@@ -135,6 +141,7 @@ int main() {
     }
   }
 
+  //output
   PrintGrid(grid);
 
   return 0;
@@ -142,12 +149,12 @@ int main() {
 
 void PrintGrid(vector<vector<Cell>> grid)
 {
-  int rows = grid.size();
-  int columns = grid[0].size();
+  int columns = (int)grid.size();
+  int rows = (int)grid[0].size();
   // prints the results
   for (int r = 0; r < rows; r++) {
     for (int c = 0; c < columns; c++) {
-      cout << grid[r][c].state;
+      cout << grid[c][r].state;
     }
     cout << endl;
   }
