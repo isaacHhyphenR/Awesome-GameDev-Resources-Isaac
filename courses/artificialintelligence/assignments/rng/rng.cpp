@@ -7,8 +7,8 @@
 using namespace std;
 
 int main(){
-  int32_t value;
-  int32_t numToGen;
+  uint32_t value;
+  uint32_t numToGen;
   int min;
   int max;
 
@@ -19,13 +19,10 @@ int main(){
   {
     //shifts the number to 'randomize' it
     value ^= value << 13;
-
     value ^= value >> 17;
-
     value ^= value << 5;
 
     //clamps the number
-    cout << (value % (max - min + 1)) << endl;
+    cout << min + (value % (max - min + 1)) << endl;
   }
-
 }
